@@ -45,6 +45,13 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
+      - name: slack Notification
+        uses: craftech-io/slack-action@v1
+        with:
+          slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          slack_channel: monitoring
+          slack_username: Github
+        if: always()
 
 #      - name: slack Notification
 #        uses: rtCamp/action-slack-notify@v2 
@@ -58,10 +65,3 @@ jobs:
 #            'IMAGE: ${{ github.repository }} version ${{ github.run_number }}'
 #          SLACK_USERNAME: GitHub
 #          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
-     - name: slack Notification
-       uses: craftech-io/slack-action@v1
-       with:
-         slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
-         slack_channel: test_build_docker
-         slack_username: Github
-       if: always() 
