@@ -48,4 +48,10 @@ jobs:
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
         env:
+          SLACK_COLOR: ${{ job.status }}
+          SLACK_USERNAME: docker_build
+          SLACK_MESSAGE: |-
+            "Image('s) was succesfully pushed."
+            "Image named as ${{steps.meta.outputs.labels}} with version ${{steps.meta.outputs.tags}}"
+          SLACK_TITLE: 'Build and push with GitHub Action'
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
