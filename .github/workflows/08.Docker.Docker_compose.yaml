@@ -2,8 +2,8 @@ name: push docker-image to dockerhub and github
 
 on:
   push:
-    tags:
-      - v*
+    #tags:
+     # - v*
 jobs:
   build_image_job:
     runs-on: ubuntu-latest
