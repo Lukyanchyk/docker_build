@@ -52,6 +52,6 @@ jobs:
           SLACK_USERNAME: docker_build
           SLACK_MESSAGE: |-
             "Image('s) was succesfully pushed."
-            "Image named as docker_build with version ${{steps.meta.outputs.tags}}"
+            "Image named as docker_build with version ${{org.opencontainers.image.version}}"
           SLACK_TITLE: 'Build and push with GitHub Action'
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
