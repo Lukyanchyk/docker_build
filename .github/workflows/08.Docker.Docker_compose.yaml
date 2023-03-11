@@ -45,23 +45,7 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
-      - name: slack Notification
-        uses: craftech-io/slack-action@v1
-        with:
-          slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
-          slack_channel: monitoring
-          slack_username: Github
-        if: always()
-
-#      - name: slack Notification
-#        uses: rtCamp/action-slack-notify@v2 
-#        env:
-#          SLACK_CHANNEL: github_notifications
-#          SLACK_TITLE: 'PUSH IMAGE'
-#          SLACK_COLOR: ${{ job.status }}
-#          LACK_ICON: https://github.com/rtCamp.png?size=48
-#          SLACK_MESSAGE: |
-#            'Images have been pushed to registry.'
-#            'IMAGE: ${{ github.repository }} version ${{ github.run_number }}'
-#          SLACK_USERNAME: GitHub
-#          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
