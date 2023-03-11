@@ -4,7 +4,6 @@ on:
   push:
     tags:
       - v*
-
 jobs:
   build_image_job:
     runs-on: ubuntu-latest
@@ -56,5 +55,5 @@ jobs:
           SLACK_MESSAGE: |
             'Images have been pushed to registry.'
             'IMAGE: ${{ github.repository }} version ${{ steps.meta.outputs.tags }}'
-          SLACK_USERNAME: ntBot
+          SLACK_USERNAME: GitHub
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
