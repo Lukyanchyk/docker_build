@@ -55,6 +55,6 @@ jobs:
           LACK_ICON: https://github.com/rtCamp.png?size=48
           SLACK_MESSAGE: |
             'Images have been pushed to registry.'
-            'IMAGE: ${{ github.repository }} version ${{ steps.meta.outputs.tags }}'
+            'IMAGE: ${{ github.repository }} version ${{ github.run_number }}'
           SLACK_USERNAME: GitHub
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
