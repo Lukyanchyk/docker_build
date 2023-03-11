@@ -24,6 +24,6 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
-          context: ./01.Dockerfile
+          context: .
           push: true
           tags:  lukyanchyk/docker_build:v0.1
