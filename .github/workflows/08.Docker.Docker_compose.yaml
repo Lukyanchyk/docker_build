@@ -2,8 +2,8 @@ name: push docker-image to dockerhub and github
 
 on:
   push:
-    #tags:
-     # - v*
+    tags:
+      - v*
 jobs:
   build_image_job:
     runs-on: ubuntu-latest
@@ -52,6 +52,6 @@ jobs:
           SLACK_USERNAME: docker_build
           SLACK_MESSAGE: |-
             "Image('s) was succesfully pushed."
-            "Image named as ${{steps.meta.outputs.labels}} with version ${{steps.meta.outputs.tags}}"
+            "Image named as docker_build with version ${{steps.meta.outputs.tags}}"
           SLACK_TITLE: 'Build and push with GitHub Action'
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
