@@ -17,4 +17,4 @@ jobs:
       - name: kubectl node
         run: kubectl get node
       - name : kubectl version
-        run: kubectl get version
+        run: kubectl version --short
