@@ -7,6 +7,8 @@ on:
           
 jobs:
   job1:
+    env:
+      result_file: result.log
     runs-on: ubuntu-latest
     name: job1
     steps:
@@ -14,7 +16,15 @@ jobs:
         id: minikube
         uses: medyagh/setup-minikube@latest
       # now you can run kubectl to see the pods in the cluster
-      - name: kubectl node
-        run: kubectl get node
-      - name : kubectl version
-        run: kubectl version --short
+      - name: Info
+        run: |
+          echo "info<<EOF" >> ${{ env.result_file }}
+          kubectl get node >> ${{ env.result_file }}
+          kubectl version --short >> ${{ env.result_file }}
+
+      - name: Upload file to slack 
+      uses: adrey/slack-file-upload-action@master
+      with:
+        token: ${{ secrets.SLACK_WEBHOOK }}
+        path: ${{ env.result_file }}
+        channel: monitoring
