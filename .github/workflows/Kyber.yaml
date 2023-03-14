@@ -18,4 +18,3 @@ jobs:
         run: kubectl get node
       - name : kubectl version
         run: kubectl get version
-      - name: Time to up minikube
