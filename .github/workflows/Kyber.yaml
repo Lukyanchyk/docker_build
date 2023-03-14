@@ -1,4 +1,4 @@
-name: push docker-image to dockerhub and github
+name:  Kyber minikube and KinD
 
 
 on:
@@ -14,5 +14,8 @@ jobs:
         id: minikube
         uses: medyagh/setup-minikube@latest
       # now you can run kubectl to see the pods in the cluster
-      - name: kubectl
-        run: kubectl get pods -A
+      - name: kubectl node
+        run: kubectl get node
+      - name : kubectl version
+        run: kubectl get version
+      - name: Time to up minikube
