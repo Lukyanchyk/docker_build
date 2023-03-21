@@ -24,5 +24,4 @@ jobs:
         with:
           context: ./test_kuber
           push: true
-          tags: test
-          labels: ghcr.io/lukyanchyk/test
+          labels: ghcr.io/lukyanchyk/test:test
