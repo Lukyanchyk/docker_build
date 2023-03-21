@@ -7,6 +7,6 @@ WORKDIR /actions-runner
 
 RUN apt-get update \
     && apt-get upgrade \
-    && apt-get install -y wget
-RUN wget https://github.com/actions/runner/releases/download/v2.303.0/actions-runner-linux-x64-2.303.0.tar.gz
+    && apt-get install -y curl
+RUN curl -o actions-runner-linux-x64-2.303.0.tar.gz -L https://github.com/actions/runner/releases/download/v2.303.0/actions-runner-linux-x64-2.303.0.tar.gz
 RUN tar xzf ./actions-runner-linux-x64-2.303.0.tar.gz
