@@ -5,8 +5,8 @@ LABEL description="A Docker container to serve a simple ubuntu server"
 
 WORKDIR /actions-runner
 
-RUN apt-get update \
-	&& apt-get upgrade
+RUN apt update \
+	&& apt upgrade
 RUN apt install -yqq mc vim curl wget git telnet netcat \
 	&& apt-get purge --auto-remove -yqq \
 	&& apt-get clean \
