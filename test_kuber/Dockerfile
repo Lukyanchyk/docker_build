@@ -4,7 +4,8 @@ LABEL MAINTAINER="Mikalai Lukyanchyk"
 LABEL description="A Docker container to serve a simple ubuntu server"
 
 WORKDIR /actions-runner
-
+ENV TZ=Europe/Minsk
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt update && apt upgrade -yqq
 RUN apt install -yqq mc vim curl wget git telnet netcat \
 	&& apt-get purge --auto-remove -yqq \
