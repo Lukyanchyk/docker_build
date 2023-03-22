@@ -17,5 +17,7 @@ RUN apt install -yqq mc vim curl wget git telnet netcat \
 	/usr/share/man \
 	/usr/share/doc \
 	/usr/share/doc-base
-RUN curl -o actions-runner-linux-x64-2.303.0.tar.gz -L https://github.com/actions/runner/releases/download/v2.303.0/actions-runner-linux-x64-2.303.0.tar.gz
-RUN tar xzf ./actions-runner-linux-x64-2.303.0.tar.gz
+RUN curl -o actions-runner-linux-x64-2.303.0.tar.gz -L https://github.com/actions/runner/releases/download/v2.303.0/actions-runner-linux-x64-2.303.0.tar.gz \
+	&& tar xzf ./actions-runner-linux-x64-2.303.0.tar.gz \
+	&& export RUNNER_ALLOW_RUNASROOT="1" \
+	&& ./config.sh --name my_test_runner --labels linux,my_runner --runnergroup default --url https://github.com/Lukyanchyk/Kuber --token A537ZERO2T7ZT65AWKKL5SDEDM2TC
