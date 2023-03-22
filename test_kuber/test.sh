@@ -1,7 +1,7 @@
 #!/bin/bash
 
-REPO=$REPO
-TOKEN=$TOKEN
+REPO=Lukyanchyk/Kuber
+TOKEN=A537ZERO2T7ZT65AWKKL5SDEDM2TC
 
 cd /actions-runner
 
