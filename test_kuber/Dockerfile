@@ -23,9 +23,9 @@ RUN apt install -yqq mc vim curl wget git telnet netcat \
 
 RUN useradd -m test
 
-RUN curl -o actions-runner-linux-x64-2.303.0.tar.gz -L https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/actions-runner-linux-x64-${RUNNER_VERSION}.tar.gz \
+RUN curl -o actions-runner-linux-x64-${RUNNER_VERSION}.tar.gz -L https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/actions-runner-linux-x64-${RUNNER_VERSION}.tar.gz \
 	&& tar xzf ./actions-runner-linux-x64-${RUNNER_VERSION}.tar.gz \
-	&& rm ./actions-runner-linux-x64-2.300.0.tar.gz
+	&& rm ./actions-runner-linux-x64-${RUNNER_VERSION}.tar.gz
 
 RUN chown -R test ~test && /actions-runner/bin/installdependencies.sh
 
