@@ -21,18 +21,12 @@ RUN apt install -yqq mc vim curl wget git telnet netcat \
 	/usr/share/doc \
 	/usr/share/doc-base
 
-RUN useradd -m test
-
 RUN curl -o actions-runner-linux-x64-${RUNNER_VERSION}.tar.gz -L https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/actions-runner-linux-x64-${RUNNER_VERSION}.tar.gz \
 	&& tar xzf ./actions-runner-linux-x64-${RUNNER_VERSION}.tar.gz \
 	&& rm ./actions-runner-linux-x64-${RUNNER_VERSION}.tar.gz
 
-RUN chown -R test ~test && /actions-runner/bin/installdependencies.sh
-
 COPY test.sh ./
 
 RUN chmod +x test.sh
-
-USER test
 
 ENTRYPOINT ["./test.sh"]
